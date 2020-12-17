@@ -15,7 +15,7 @@ spec:
       containers:
         - name: sync
           image: lkrzyzanek/content-image
-          command: ["rsync", "-avh --progress"]
+          command: ["rsync", "-avh"]
           args: ["/content/", "/spaship-content/"]
           volumeMounts:
             - name: data
