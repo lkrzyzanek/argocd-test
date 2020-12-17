@@ -1,7 +1,10 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  generateName: copy-content-
+  name: copy-content-
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
     spec:
@@ -17,4 +20,5 @@ spec:
           volumeMounts:
             - name: data
               mountPath: "/spaship-content/"
-      restartPolicy: OnFailure
+      restartPolicy: Never
+  backoffLimit: 0
