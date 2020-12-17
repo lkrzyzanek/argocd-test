@@ -20,5 +20,12 @@ spec:
           volumeMounts:
             - name: data
               mountPath: "/spaship-content/"
+        - name: sync-spa1
+          image: lkrzyzanek/content-image:latest
+          command: ["rsync", "-avh"]
+          args: ["/content/", "/spaship-content/spa1/"]
+          volumeMounts:
+            - name: data
+              mountPath: "/spaship-content/"
       restartPolicy: Never
   backoffLimit: 0
