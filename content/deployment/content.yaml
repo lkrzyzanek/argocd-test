@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: copy-content
+spec:
+  template:
+    spec:
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: spaship-data
+      containers:
+        - name: sync
+          image: lkrzyzanek/content-image
+          command: ["rsync", "-avh"]
+          args: ["/content/", "/spaship-content/"]
+          volumeMounts:
+            - name: data
+              mountPath: "/spaship-content/"
+      restartPolicy: OnFailure
