@@ -14,3 +14,10 @@ spec:
                 name: restapi
                 port:
                   number: 8080
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: default-http-backend
+                port:
+                  number: 80
