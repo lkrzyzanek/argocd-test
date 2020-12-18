@@ -2,6 +2,11 @@
 
 Testing [Argo CD](https://argoproj.github.io/argo-cd/getting_started/).
 
+|Use Case|Description|
+|--------|-----------|
+|[content](content)|Static content CD|
+|[content-restapi-ingress](content-restapi-ingress)|Static content + REST API + Ingress CD|
+
 
 ## Minikube
 
@@ -36,3 +41,7 @@ minikube dashboard
 ```
 
 Navigate to Services / argocd-server and click on External endpoint to access Argo CD
+
+Create `NEW APP` with:
+1. git repo - `https://github.com/lkrzyzanek/argocd-test.git`
+2. path - choose the example e.g. `content/deployment`
