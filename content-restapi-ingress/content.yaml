@@ -15,6 +15,7 @@ spec:
       containers:
         - name: sync
           image: lkrzyzanek/helloworld-image-content:catalog
+          imagePullPolicy: Always
           command: ["rsync", "-avh"]
           args: ["/content/", "/target/"]
           volumeMounts:
