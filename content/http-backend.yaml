@@ -2,36 +2,36 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: spaship
+  name: default-http-backend
   labels:
-    app: spaship
+    app: default-http-backend
 spec:
   type: LoadBalancer
   ports:
     - port: 80
       targetPort: 8080
   selector:
-    app: spaship
+    app: default-http-backend
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spaship
+  name: default-http-backend
   labels:
-    app: spaship
+    app: default-http-backend
 spec:
   selector:
     matchLabels:
-      app: spaship
+      app: default-http-backend
   template:
     metadata:
       labels:
-        app: spaship
+        app: default-http-backend
     spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: spaship-data
+            claimName: http-backend-data
       containers:
         - image: spaship/httpd
           name: spaship
