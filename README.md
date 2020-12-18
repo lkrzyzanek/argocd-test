@@ -44,4 +44,4 @@ Navigate to Services / argocd-server and click on External endpoint to access Ar
 
 Create `NEW APP` with:
 1. git repo - `https://github.com/lkrzyzanek/argocd-test.git`
-2. path - choose the example e.g. `content/deployment`
+2. path - choose the example e.g. `content`
