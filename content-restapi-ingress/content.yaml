@@ -14,10 +14,18 @@ spec:
             claimName: http-backend-data
       containers:
         - name: sync
-          image: lkrzyzanek/helloworld-image-content:catalog
+          image: lkrzyzanek/test-content-image:catalog
           imagePullPolicy: Always
           command: ["rsync", "-avh"]
           args: ["/content/", "/target/"]
+          volumeMounts:
+            - name: data
+              mountPath: "/target/"
+        - name: sync-spa
+          image: lkrzyzanek/test-content-image:home-spa
+          imagePullPolicy: Always
+          command: ["rsync", "-avh"]
+          args: ["/content/", "/target/home-spa"]
           volumeMounts:
             - name: data
               mountPath: "/target/"
