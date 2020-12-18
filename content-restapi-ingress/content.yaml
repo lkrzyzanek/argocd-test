@@ -20,12 +20,5 @@ spec:
           volumeMounts:
             - name: data
               mountPath: "/target/"
-        - name: sync-spa1
-          image: lkrzyzanek/helloworld-image-content:2.0
-          command: ["rsync", "-avh"]
-          args: ["/content/", "/target/spa1/"]
-          volumeMounts:
-            - name: data
-              mountPath: "/target/"
       restartPolicy: Never
   backoffLimit: 0
