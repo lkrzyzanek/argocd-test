@@ -29,7 +29,7 @@ spec:
         app: restapi
     spec:
       containers:
-        - image: lkrzyzanek/helloworld-restapi:1.0
+        - image: lkrzyzanek/helloworld-restapi:2.0
           name: restapi
           ports:
             - containerPort: 8080
