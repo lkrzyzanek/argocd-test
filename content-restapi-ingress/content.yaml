@@ -14,7 +14,7 @@ spec:
             claimName: http-backend-data
       containers:
         - name: sync
-          image: lkrzyzanek/helloworld-image-content:3.0
+          image: lkrzyzanek/helloworld-image-content:catalog
           command: ["rsync", "-avh"]
           args: ["/content/", "/target/"]
           volumeMounts:
