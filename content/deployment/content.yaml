@@ -14,14 +14,14 @@ spec:
             claimName: spaship-data
       containers:
         - name: sync
-          image: lkrzyzanek/helloworld-image-content:latest
+          image: lkrzyzanek/helloworld-image-content:1.0
           command: ["rsync", "-avh"]
           args: ["/content/", "/target/"]
           volumeMounts:
             - name: data
               mountPath: "/target/"
         - name: sync-spa1
-          image: lkrzyzanek/helloworld-image-content:latest
+          image: lkrzyzanek/helloworld-image-content:2.0
           command: ["rsync", "-avh"]
           args: ["/content/", "/target/spa1/"]
           volumeMounts:
