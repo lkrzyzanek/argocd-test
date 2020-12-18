@@ -11,7 +11,7 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: spaship-data
+            claimName: http-backend-data
       containers:
         - name: sync
           image: lkrzyzanek/helloworld-image-content:1.0
