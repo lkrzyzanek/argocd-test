@@ -45,3 +45,9 @@ Navigate to Services / argocd-server and click on External endpoint to access Ar
 Create `NEW APP` with:
 1. git repo - `https://github.com/lkrzyzanek/argocd-test.git`
 2. path - choose the example e.g. `content`
+
+5. Update /etc/host (only if testing ingress)
+
+```shell
+echo "$(minikube ip) minikube.info" | sudo tee -a /etc/hosts
+```
