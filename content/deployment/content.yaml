@@ -14,7 +14,7 @@ spec:
             claimName: spaship-data
       containers:
         - name: sync
-          image: lkrzyzanek/content-image:latest
+          image: lkrzyzanek/helloworld-image-content:latest
           command: ["rsync", "-avh"]
           args: ["/content/", "/spaship-content/"]
           volumeMounts:
