@@ -32,7 +32,7 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: http-backend-data
+            claimName: "{{ .Values.content.pvc.name }}"
       containers:
         - image: spaship/httpd
           name: spaship

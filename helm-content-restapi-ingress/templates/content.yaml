@@ -12,7 +12,7 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: http-backend-data
+            claimName: "{{ .Values.content.pvc.name }}"
       containers:
         - name: sync
           image: "{{ .Values.content.image.repository }}:{{ .Values.content.image.tag }}"

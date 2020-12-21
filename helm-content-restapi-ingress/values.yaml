@@ -9,6 +9,8 @@ content:
     repository: lkrzyzanek/helloworld-image-content
     tag: "2.0"
     pullPolicy: IfNotPresent
+  pvc:
+    name: http-backend-data
 
 # REST API Values
 restapi:

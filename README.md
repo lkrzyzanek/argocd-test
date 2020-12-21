@@ -49,5 +49,5 @@ Create `NEW APP` with:
 5. Update /etc/host (only if testing ingress)
 
 ```shell
-echo "$(minikube ip) minikube.info" | sudo tee -a /etc/hosts
+echo "$(minikube ip) minikube.info pr-30.minikube.info" | sudo tee -a /etc/hosts
 ```
