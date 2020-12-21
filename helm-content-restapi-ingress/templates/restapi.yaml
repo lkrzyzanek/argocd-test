@@ -20,6 +20,7 @@ metadata:
   labels:
     app: restapi
 spec:
+  replicas: {{ .Values.restapi.replicas }}
   selector:
     matchLabels:
       app: restapi

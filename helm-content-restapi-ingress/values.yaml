@@ -1,6 +1,7 @@
 
 # Content Values
 content:
+  replicas: 1
   image:
     repository: lkrzyzanek/helloworld-image-content
     tag: "3.0"
@@ -8,6 +9,7 @@ content:
 
 # REST API Values
 restapi:
+  replicas: 1
   image:
     repository: lkrzyzanek/helloworld-restapi
     tag: "1.0"

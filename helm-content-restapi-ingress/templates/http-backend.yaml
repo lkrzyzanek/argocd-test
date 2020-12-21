@@ -20,6 +20,7 @@ metadata:
   labels:
     app: default-http-backend
 spec:
+  replicas: {{ .Values.content.replicas }}
   selector:
     matchLabels:
       app: default-http-backend
