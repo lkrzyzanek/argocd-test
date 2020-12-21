@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: "{{ .Values.content.pvc.name }}"
+  name: {{ .Chart.Name }}-pvc
 spec:
   accessModes:
     - ReadWriteOnce

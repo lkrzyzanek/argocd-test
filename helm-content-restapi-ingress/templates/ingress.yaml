@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: content-restapi
+  name: "{{ .Chart.Name }}"
 spec:
   rules:
     - host: "{{ .Values.ingress.host }}"
@@ -11,13 +11,13 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: restapi
+                name: "{{ .Chart.Name }}-restapi"
                 port:
                   number: 8080
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: default-http-backend
+                name: "{{ .Chart.Name }}-http"
                 port:
                   number: 80
