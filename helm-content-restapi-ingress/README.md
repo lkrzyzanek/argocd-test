@@ -25,17 +25,17 @@ Build creates image with version same as PR number and then new app is created:
 ```shell
 PR_NUMBER=54378
 CONTENT_IMAGE_TAG=3.0
-argocd app create content-restapi-ingress-pr-${PR_NUMBER} \
+argocd app create helm-content-restapi-pr-${PR_NUMBER} \
 --repo https://github.com/lkrzyzanek/argocd-test.git --path helm-content-restapi-ingress \
 --dest-namespace default --dest-server https://kubernetes.default.svc \
---helm-set deployment.name=content-restapi-ingress-pr-${PR_NUMBER} \
+--helm-set deployment.name=content-restapi-pr-${PR_NUMBER} \
 --helm-set content.image.tag=${CONTENT_IMAGE_TAG} --helm-set content.image.pullPolicy=Always \
 --helm-set ingress.host=pr-${PR_NUMBER}.minikube.info
 ```
 
 Initial sync:
 ```shell
-argocd app sync helm-content-restapi-ingress-pr-30
+argocd app sync helm-content-restapi-pr-${PR_NUMBER}
 ```
 
 ### New PR Commit
@@ -43,7 +43,7 @@ argocd app sync helm-content-restapi-ingress-pr-30
 Image is refreshed
 
 ```shell
-argocd app sync helm-content-restapi-ingress-pr-30
+argocd app sync helm-content-restapi-pr-${PR_NUMBER}
 ```
 
 ### PR is Closed
@@ -51,5 +51,5 @@ argocd app sync helm-content-restapi-ingress-pr-30
 Image is deleted
 
 ```shell
-argocd app delete helm-content-restapi-ingress-pr-30
+argocd app delete helm-content-restapi-pr-${PR_NUMBER}
 ```
