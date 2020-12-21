@@ -3,7 +3,7 @@
 content:
   image:
     repository: lkrzyzanek/test-content-image
-    tag: catalog
+    tag: "3.0"
     pullPolicy: Always
 
 # REST API Values
