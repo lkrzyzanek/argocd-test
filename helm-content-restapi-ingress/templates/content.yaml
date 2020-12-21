@@ -16,7 +16,7 @@ spec:
       containers:
         - name: sync
           image: "{{ .Values.content.image.repository }}:{{ .Values.content.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.content.image.pullPolicy }}
           command: ["rsync", "-avh"]
           args: ["/content/", "/target/"]
           volumeMounts:
