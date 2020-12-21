@@ -4,7 +4,7 @@ metadata:
   name: content-restapi
 spec:
   rules:
-    - host: minikube.info
+    - host: "{{ .Values.ingress.host }}"
       http:
         paths:
           - path: /api
