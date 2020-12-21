@@ -2,7 +2,7 @@
 # Content Values
 content:
   image:
-    repository: lkrzyzanek/test-content-image
+    repository: lkrzyzanek/helloworld-image-content
     tag: "3.0"
     pullPolicy: Always
 

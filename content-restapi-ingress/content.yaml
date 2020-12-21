@@ -14,7 +14,7 @@ spec:
             claimName: http-backend-data
       containers:
         - name: sync
-          image: lkrzyzanek/test-content-image:catalog
+          image: lkrzyzanek/helloworld-image-content:3.0
           imagePullPolicy: Always
           command: ["rsync", "-avh"]
           args: ["/content/", "/target/"]
