@@ -1,0 +1,14 @@
+
+# Content Values
+content:
+  image:
+    repository: lkrzyzanek/test-content-image
+    tag: catalog
+    pullPolicy: Always
+
+# REST API Values
+restapi:
+  image:
+    repository: lkrzyzanek/helloworld-restapi
+    tag: 1.0
+    pullPolicy: IfNotPresent

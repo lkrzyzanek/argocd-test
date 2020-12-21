@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: copy-content
+  annotations:
+    # TODO: Change to helm hook
+    argocd.argoproj.io/hook: Sync
+#    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: http-backend-data
+      containers:
+        - name: sync
+          image: "{{ .Values.content.image.repository }}:{{ .Values.content.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: ["rsync", "-avh"]
+          args: ["/content/", "/target/"]
+          volumeMounts:
+            - name: data
+              mountPath: "/target/"
+      restartPolicy: Never
+  backoffLimit: 0
