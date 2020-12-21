@@ -31,6 +31,6 @@ spec:
       containers:
         - name: restapi
           image: "{{ .Values.restapi.image.repository }}:{{ .Values.restapi.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.restapi.image.pullPolicy }}
           ports:
             - containerPort: 8080
