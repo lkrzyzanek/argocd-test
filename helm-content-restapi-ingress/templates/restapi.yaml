@@ -2,32 +2,32 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: "{{ .Chart.Name }}-restapi"
+  name: "{{ .Values.deployment.name }}-restapi"
   labels:
-    app: "{{ .Chart.Name }}"
+    app: "{{ .Values.deployment.name }}"
 spec:
   type: NodePort
   ports:
     - port: 80
       targetPort: 8080
   selector:
-    app: "{{ .Chart.Name }}-restapi"
+    app: "{{ .Values.deployment.name }}-restapi"
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{ .Chart.Name }}-restapi"
+  name: "{{ .Values.deployment.name }}-restapi"
   labels:
-    app: "{{ .Chart.Name }}"
+    app: "{{ .Values.deployment.name }}"
 spec:
   replicas: {{ .Values.restapi.replicas }}
   selector:
     matchLabels:
-      app: "{{ .Chart.Name }}-restapi"
+      app: "{{ .Values.deployment.name }}-restapi"
   template:
     metadata:
       labels:
-        app: "{{ .Chart.Name }}-restapi"
+        app: "{{ .Values.deployment.name }}-restapi"
     spec:
       containers:
         - name: restapi

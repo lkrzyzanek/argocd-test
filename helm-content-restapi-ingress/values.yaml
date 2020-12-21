@@ -1,3 +1,5 @@
+deployment:
+  name: "content-restapi-ingress"
 
 ingress:
   host: "minikube.info"

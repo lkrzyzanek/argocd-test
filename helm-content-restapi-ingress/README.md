@@ -23,11 +23,13 @@ argocd app sync helm-content-restapi-ingress
 Build creates image with version same as PR number and then new app is created:
 
 ```shell
-argocd app create helm-content-restapi-ingress-pr-30 \
+PR_NUMBER=3.0
+argocd app create helm-content-restapi-ingress-pr-${PR_NUMBER} \
 --repo https://github.com/lkrzyzanek/argocd-test.git --path helm-content-restapi-ingress \
 --dest-namespace default --dest-server https://kubernetes.default.svc \
---helm-set content.image.tag=3.0 --helm-set content.image.pullPolicy=Always --helm-set content.pvc.name=http-backend-data-30 \
---helm-set ingress.host=pr-30.minikube.info
+--helm-set deployment.name=helm-content-restapi-ingress-pr-${PR_NUMBER} \
+--helm-set content.image.tag=${PR_NUMBER} --helm-set content.image.pullPolicy=Always \
+--helm-set ingress.host=pr-${PR_NUMBER}.minikube.info
 ```
 
 Initial sync:

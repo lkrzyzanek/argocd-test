@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: copy-content
+  name: {{ .Values.deployment.name }}-copy-content
   annotations:
     # TODO: Change to helm hook
     argocd.argoproj.io/hook: Sync
@@ -12,7 +12,7 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: "{{ .Chart.Name }}-pvc"
+            claimName: "{{ .deployment.name }}-pvc"
       containers:
         - name: sync
           image: "{{ .Values.content.image.repository }}:{{ .Values.content.image.tag }}"
