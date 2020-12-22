@@ -31,9 +31,9 @@ spec:
     spec:
       volumes:
         - name: data
-#          persistentVolumeClaim:
-#            claimName: "{{ .Values.deployment.name }}-pvc"
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: "{{ .Values.deployment.name }}-pvc"
+#          emptyDir: {}
       initContainers:
         # Init data
         - name: init-content
