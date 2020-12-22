@@ -31,10 +31,22 @@ spec:
     spec:
       volumes:
         - name: data
-          persistentVolumeClaim:
-            claimName: "{{ .Values.deployment.name }}-pvc"
+#          persistentVolumeClaim:
+#            claimName: "{{ .Values.deployment.name }}-pvc"
+          emptyDir: {}
+      initContainers:
+        # Init data
+        - name: init-content
+          image: "{{ .Values.content.image.repository }}:{{ .Values.content.image.tag }}"
+          imagePullPolicy: {{ .Values.content.image.pullPolicy }}
+          command: ["rsync", "-avh"]
+          args: ["/content/", "/target/"]
+          volumeMounts:
+            - name: data
+              mountPath: "/target/"
       containers:
         - image: spaship/httpd
+          pullPolicy: IfNotPresent
           name: spaship
           ports:
             - containerPort: 8080
