@@ -13,7 +13,7 @@ spec:
               service:
                 name: "{{ .Values.deployment.name }}-restapi"
                 port:
-                  number: 8080
+                  number: 80
           - path: /
             pathType: Prefix
             backend:
