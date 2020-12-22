@@ -13,6 +13,7 @@ spec:
   storageClassName: local-storage
   local:
     path: /tmp/pv-{{ .Values.deployment.name }}
+    type: DirectoryOrCreate
   nodeAffinity:
     required:
       nodeSelectorTerms:
