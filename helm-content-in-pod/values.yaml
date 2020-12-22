@@ -1,0 +1,13 @@
+deployment:
+  name: "content"
+
+ingress:
+  host: "minikube.info"
+
+# Content Values
+content:
+  replicas: 1
+  image:
+    repository: lkrzyzanek/helloworld-image-content
+    tag: "2.0"
+    pullPolicy: Always

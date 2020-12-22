@@ -7,6 +7,7 @@ Testing [Argo CD](https://argoproj.github.io/argo-cd/getting_started/).
 |[content](content)|Static content CD|
 |[content-restapi-ingress](content-restapi-ingress)|Static content + REST API + Ingress CD|
 |[helm-content-restapi-ingress](helm-content-restapi-ingress)|Helm example CD|
+|[helm-content-in-pod](helm-content-in-pod)|Helm example with content in pod (no PVC) CD|
 
 ## Minikube
 
