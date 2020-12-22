@@ -39,7 +39,7 @@ spec:
         - name: init-content
           image: "{{ .Values.content.image.repository }}:{{ .Values.content.image.tag }}"
           imagePullPolicy: {{ .Values.content.image.pullPolicy }}
-          command: ["rsync", "--no-perms", "--no-owner", "--no-group", "-avh", "/content/", "/target/"]
+          command: ["rsync", "-rDvh", "/content/", "/target/"]
           volumeMounts:
             - name: data
               mountPath: "/target/"
