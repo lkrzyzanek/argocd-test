@@ -46,7 +46,7 @@ spec:
               mountPath: "/target/"
       containers:
         - image: spaship/httpd
-          pullPolicy: IfNotPresent
+          imagePullPolicy: IfNotPresent
           name: spaship
           ports:
             - containerPort: 8080
